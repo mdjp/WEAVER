@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="KB Processing WEAVER">
+<meta name="keywords" content="Web Audio API">
+<meta name="author" content="Ken Brown">
+<title>PROC Demo</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<!--script src="lib/jquery-1.12.0.js"></script-->
+<script src="../lib/AudioContextMonkeyPatch.js"></script>
+<script src="../lib/BufferLoad.js"></script>
+<script src="../lib/3-r75/three.min.js"> // for vec3 only! </script>
+<!--script src="lib/r75/controls/OrbitControls.js"></script-->
+<!--script src="../lib/processing.min.js" async></script-->
+
+<script>
+// TEST ONLY
+	function doticker(displayindex, diver ) {
+		if ( (displayindex % diver) > diver/2 ) {
+			val = '#FFFFFF';
+		}else{ 
+			val = '#FF0000';
+		}
+		var elem = document.getElementById('flasher');
+		if ( elem )
+			elem.style.color = val;
+	}
+</script>
+
+<script src="AudioClass.js"></script>
+<script src="../lib/processing.min.js"></script>
+<canvas data-processing-sources="eghh2.pde" id='sketch'></canvas>
+<!--div>
+    <button id="flasher">X</button>
+</div-->
+
+
+<script>
+var pjs;
+function loadPJS() {
+	if (!pjs) {
+		pjs = Processing.getInstanceById('sketch');
+		pjs.setJavaScript(this);
+	}
+}
+setTimeout("loadPJS()", 1000);	
+</script>
+
+
+
+</head>
+<body>
+
+<!--div>
+    <button class="stdButton" id="btnTEST1">Test</button>
+</div-->
+
+
+</body>
+</html>
